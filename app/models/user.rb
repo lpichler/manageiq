@@ -6,7 +6,8 @@ class User < ApplicationRecord
   include ActiveVmAggregationMixin
   include TimezoneMixin
   include CustomActionsMixin
-
+  
+  has_many   :budgets
   has_many   :miq_approvals, :as => :approver
   has_many   :miq_approval_stamps,  :class_name => "MiqApproval", :foreign_key => :stamper_id
   has_many   :miq_requests, :foreign_key => :requester_id
